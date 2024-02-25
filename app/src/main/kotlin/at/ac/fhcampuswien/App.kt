@@ -10,6 +10,7 @@ class App {
     }
 
     /**
+     * Change1
      * Generates a non-repeating number of a specified length between 1-9.
      *
      * Note: The function is designed to generate a number where each digit is unique and does not repeat.
