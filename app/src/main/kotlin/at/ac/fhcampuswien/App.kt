@@ -37,7 +37,7 @@ class App {
         val correctPositions = inputStr.zip(genStr).count { (inputDigit, generatedDigit) ->
             val isCorrectPosition = inputDigit == generatedDigit
             if (isCorrectPosition || generatedNumber.toString().contains(inputDigit)) {
-                if (isCorrectPosition || !isCorrectPosition && inputStr.count { it == inputDigit } == 1) {
+                if (isCorrectPosition || inputStr.count { it == inputDigit } == 1) {
                     correctDigits++
                 }
             }
