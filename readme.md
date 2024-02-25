@@ -9,28 +9,34 @@
 ## Questions
 ### Describe how Kotlin handles null safety. What are nullable types and non-null types in Kotlin? (0,5 points)
 
-<span style="color:blue">Provide your answer here! </span>
-> Note: you can also use code snippets to illustrate your answer. 
+> Kotlin handles null safety through its type system. Each type in Kotlin can be either nullable or non-nullable:
 
-```kotlin 
-// example code snippet
-val a: String = "value" // non-null type
+Non-null types cannot hold a null value. Attempting to assign null to such a type will result in a compile-time error.
+Nullable types can hold a null value. They are declared by appending a ? to the type name.
+
+```kotlin
+val a: String = "Hello" // Non-null type. 'a' cannot be set to null.
+var b: String? = "World" // Nullable type. 'b' can be set to null.
+b = null // This is allowed because 'b' is a nullable type.
 ```
+To safely use nullable types, Kotlin provides several mechanisms, including;
+- The safe call operator **?.**
+- the Elvis operator **?:**
+- and the **!!** operator
+
+to assert non-null when you are certain a value is not null.
 
 ### What are lambda expressions and higher order functions in Kotlin? Why would you store a function inside a variable? (0,5 points)
 
-<span style="color:blue">Provide your answer here!</span>
+Lambda expressions in Kotlin are essentially anonymous functions that can be passed around as if they were values. Higher-order functions are functions that take functions as parameters or return functions.
 
-### Provide a solution for the following number guessing game inside `App.kt`. (3 points)
+You might store a function in a variable for various reasons, such as to pass it as an argument to a higher-order function, to delay its execution, or to dynamically determine which function to call.
 
-## Number Guessing Game in Kotlin
-The game is a simple number guessing game. The task is to generate a random, max 9-digit, number. The number must **not contain repeating digits**. Valid digits are 1-9.
-Ask the user to guess the max 9-digit number. The game is finished when the user guesses the correct digits in the correct order.
-In each round, the user gets feedback about the number of correct digits and the number of correct digits in the correct position.
-The output should be in the format "n:m", where "n" is the number of digits guessed correctly regardless of their position, 
-and "m" is the number of digits guessed correctly at their correct position. Here are some examples:
+Example of a lambda expression and storing it in a variable:
 
-This example shows the game flow with 4-digits to guess (the default argument)
+```kotlin
+val sum: (Int, Int) -> Int = { x, y -> x + y }
+```
 
 Generated number: 8576
 -	User input: 1234, Output: 0:0
